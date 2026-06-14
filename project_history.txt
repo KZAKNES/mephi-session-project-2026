@@ -54,3 +54,44 @@
    54  dnf download tcpdump
    55  ls -l ~/tcpdump*.rpm
    56  history > ~/project_history.txt
+   57  ping -c 4 10.0.2.2 > ~/network_check.txt
+   58  ping -c 4 8.8.8.8 >> ~/network_check.txt
+   59  sudo journalctl -u nginx --since "10 minutes ago" > ~/nginx_recent_logs.txt
+   60  cp /etc/fstab ~/fstab.txt
+   61  getenforce > ~/selinux_status.txt
+   62  ls -Zd /data/mephi-web > ~/file_contexts.txt
+   63  getcap /usr/sbin/tcpdump > ~/tcpdump_capabilities.txt
+   64  stat /data/mephi-web > ~/permissions.txt
+   65  id mephi-admin > ~/users_groups.txt
+   66  getent group mephi-devs >> ~/users_groups.txt
+   67  curl -s http://10.0.2.100 > ~/curl_output.txt
+   68  cp /data/mephi-web/index.html ~/index.html
+   69  sudo journalctl -u nginx --since "5 minutes ago" > ~/nginx_recent_logs.txt
+   70  cd ~
+   71  git init
+   72  git add project_history.txt network_check.txt nginx_recent_logs.txt fstab.txt selinux_status.txt file_contexts.txt tcpdump_capabilities.txt permissions.txt users_groups.txt index.html curl_output.txt tcpdump*.rpm
+   73  git commit -m "Add MEPHI session project 2026 files"
+   74  git branch -M main
+   75  git remote add origin https://github.com/KZAKNES/mephi-session-project-2026.git
+   76  git push -u origin main
+   77  git config --global user.email "ghost.gamer675@gmail.com"
+   78  git config --global user.name "KZAKNES"
+   79  git commit -m "Add MEPHI session project 2026 files"
+   80  git branch -M main
+   81  git push -u origin main
+   82  git remote remove origin
+   83  git remote add origin https://github.com/KZAKNES/mephi-session-project-2026.git
+   84  git push -u origin main
+   85  hostnamectl
+   86  ip addr show enp0s3
+   87  nmcli con show
+   88  cat /etc/fstab
+   89  lsblk
+   90  cat /etc/ssh/denied_users
+   91  grep "pam_listfile.so" /etc/pam.d/sshd
+   92  getenforce
+   93  ls -ld /data/mephi-web
+   94  getcap /usr/sbin/tcpdump
+   95  echo "root" | sudo tee /etc/security/denied_users
+   96  cat /etc/security/denied_users
+   97  history > ~/project_history.txt
