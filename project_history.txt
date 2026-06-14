@@ -1,0 +1,56 @@
+    1  echo "Hello from Student: 2551017" > /data/mephi-web/index.html
+    2  1s -1 /data/mephi-web/index.html
+    3  ls -1 /data/mephi-web/index.html
+    4  sudo restorecon -v /data/mephi-web/index.html
+    5  sudo firewall-cmd --permanent --add-service=http
+    6  sudo firewall-cmd --reload
+    7  sudo firewall-cmd --list-all
+    8  sudo tee /etc/nginx/conf.d/mephi-web.conf << 'EOF'
+    9  server {
+   10      listen 80 default_server;
+   11      listen [::]:80 default_server;
+   12      server_name _;
+   13      root /data/mephi-web;
+   14      index index.html index.htm;
+   15      location / {
+   16          try_files $uri $uri/ =404;
+   17      }
+   18      # Логирование
+   19      access_log /var/log/nginx/mephi-access.log;
+   20      error_log /var/log/nginx/mephi-error.log;
+   21  }
+   22  EOF
+   23  sudo nginx -t
+   24  sudo mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.bak 2>/dev/null || true
+   25  sudo mv /etc/nginx/default.d/welcome.conf /etc/nginx/default.d/welcome.conf.bak 2>/dev/null || true
+   26  sudo nginx -t
+   27  sudo vim /etc/nginx/nginx.conf
+   28  sudo nginx -t
+   29  sudo systemctl restart nginx
+   30  sudo systemctl reload nginx
+   31  sudo restorecon -Rv /data/mephi-web
+   32  ls -Z /data/mephi-web/index.html
+   33  curl http://localhost
+   34  ip a show enp0s3
+   35  curl http://10.0.2.100
+   36  sudo poweroff
+   37  curl http://10.0.2.100
+   38  curl http://localhost
+   39  history > ~/project_history.txt
+   40  ping -c 4 10.0.2.2 > ~/network_check.txt
+   41  ping -c 4 8.8.8.8 >> ~/network_check.txt
+   42  sudo journalctl -u nginx --since "10 minutes ago" > ~/nginx_recent_logs.txt
+   43  cp /etc/fstab ~/fstab.txt
+   44  getenforce > ~/selinux_status.txt
+   45  ls -Zd /data/mephi-web > ~/file_contexts.txt
+   46  getcap /usr/sbin/tcpdump > ~/tcpdump_capabilities.txt
+   47  stat /data/mephi-web > ~/permissions.txt
+   48  id mephi-admin > ~/users_groups.txt
+   49  getent group mephi-devs >> ~/users_groups.txt
+   50  curl -s http://10.0.2.100 > ~/curl_output.txt
+   51  cp /data/mephi-web/index.html ~/index.html
+   52  ls ~/tcpdump*.rpm
+   53  find /home/artem /tmp -name "tcpdump*.rpm" 2>/dev/null
+   54  dnf download tcpdump
+   55  ls -l ~/tcpdump*.rpm
+   56  history > ~/project_history.txt
