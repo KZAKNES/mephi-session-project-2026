@@ -95,3 +95,32 @@
    95  echo "root" | sudo tee /etc/security/denied_users
    96  cat /etc/security/denied_users
    97  history > ~/project_history.txt
+   98  git add project_history.txt /etc/security/denied_users
+   99  git add project_history.txt
+  100  git commit -m "Update"
+  101  git push -u origin main
+  102  url http://10.0.2.100
+  103  curl http://10.0.2.100
+  104  curl http://localhost
+  105  id mephi-admin)
+  106  id mephi-admin
+  107  ls -ld /data/mephi-web
+  108  getcap /usr/sbin/tcpdump > ~/tcpdump_capabilities.txt
+  109  hostnamectl > ~/network_info.txt
+  110  ip addr show enp0s3 >> ~/network_info.txt
+  111  ping -c 4 192.168.1.1 > ~/network_check.txt
+  112  ping -c 4 8.8.8.8 >> ~/network_check.txt
+  113  journalctl -u nginx --since "5 minutes ago" > ~/nginx_recent_logs.txt
+  114  cp /etc/fstab ~/fstab.txt
+  115  getenforce > ~/selinux_status.txt
+  116  ls -Zd /data/mephi-web > ~/file_contexts.txt
+  117  getcap /usr/sbin/tcpdump > ~/tcpdump_capabilities.txt
+  118  stat /data/mephi-web > ~/permissions.txt
+  119  id mephi-admin > ~/users_groups.txt
+  120  getent group mephi-devs >> ~/users_groups.txt
+  121  curl -s http://192.168.1.100 > ~/curl_output.txt
+  122  ping -c 4 10.0.2.2 > ~/network_check.txt
+  123  ping -c 4 8.8.8.8 >> ~/network_check.txt
+  124  curl -s http://10.0.2.100 > ~/curl_output.txt
+  125  sudo journalctl -u nginx --since "5 minutes ago" > ~/nginx_recent_logs.txt
+  126  history > ~/project_history.txt
